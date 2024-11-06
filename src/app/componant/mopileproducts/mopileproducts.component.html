@@ -1,0 +1,46 @@
+<div class="products">
+
+    @for (product of products; track product.id) {
+  
+  
+      <div class="card" >
+          <img  class="card-img-top" [src]="product.imageUrl"  alt="no photo">
+          <div class="card-body">
+            <h5 class="card-title"> <span class="fw-bold"> Name:</span> {{product.name}}</h5>
+            <h5 class="card-title"><span class="fw-bold"> Description:</span> {{product.description}}</h5>
+            <h5 class="card-title"><span class="fw-bold"> Category: </span>{{product.category}}</h5>
+            <p class="card-text"><span class="fw-bold"> Price:</span> {{product.price}}</p>
+            <p class="card-text"><span class="fw-bold"> Quantity:</span> {{product.quantity}}</p>
+  
+            @if (product.quantity==0) {
+            <p class="text-danger" >Sold out</p>
+            }
+  
+            @switch (product.quantity) {
+              @case (1) {
+                <p class="text-warning" >Only {{product.quantity}} products left</p>
+              }
+              @case (2) {
+                <p class="text-info" >Only {{product.quantity}} products left</p>
+              }
+             
+            }
+  
+            <!-- @else if(product.quantity<=3){
+              <p class="text-warning" >Only {{product.quantity}} products left</p>
+            }
+            @else {
+              <p class="text-success" >In Stock</p>
+            } -->
+            <button [disabled]="product.quantity==0" class="btn btn-primary" (click)="handleBuy(product)">Buy</button>
+          </div>
+        </div>
+  
+      }  @empty {
+  
+    
+        <p>No product </p>
+      }
+  
+        
+  </div>

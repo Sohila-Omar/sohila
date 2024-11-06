@@ -1,0 +1,33 @@
+
+<div class="card" >
+    <img  class="card-img-top" [src]="dynamicProduct.imageUrl"  alt="no photo">
+    <div class="card-body">
+      <h5 class="card-title"> <span class="fw-bold"> Name:</span> {{dynamicProduct.name}}</h5>
+      <h5 class="card-title"><span class="fw-bold"> Description:</span> {{dynamicProduct.description}}</h5>
+      <p class="card-text"><span class="fw-bold"> Price:</span> {{dynamicProduct.price | eGPcurrency }}</p>
+      <p class="card-text"><span class="fw-bold"> Expire Date:</span> {{expireDate | date }}</p>
+      <p class="card-text"><span class="fw-bold"> Quantity:</span> {{dynamicProduct.quantity}}</p>
+
+      @if (dynamicProduct.quantity==0) {
+      <p class="text-danger" >Sold out</p>
+      }
+
+      @switch (dynamicProduct.quantity) {
+        @case (1) {
+          <p class="text-warning" >Only {{dynamicProduct.quantity}} products left</p>
+        }
+        @case (2) {
+          <p class="text-info" >Only {{dynamicProduct.quantity}} products left</p>
+        }
+       
+      }
+
+      <!-- @else if(dynamicProduct.quantity<=3){
+        <p class="text-warning" >Only {{dynamicProduct.quantity}} products left</p>
+      }
+      @else {
+        <p class="text-success" >In Stock</p>
+      } -->
+      <button [disabled]="dynamicProduct.quantity==0" class="btn btn-primary" (click)="handleBuy(dynamicProduct)">Buy</button>
+    </div>
+  </div>

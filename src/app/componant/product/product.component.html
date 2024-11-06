@@ -1,0 +1,19 @@
+
+
+
+
+<div class="products">
+
+  @for (product of products; track product.id) {
+
+
+   <app-productcard [dynamicProduct]="product"></app-productcard>
+
+    }  @empty {
+
+  
+      <p>No product </p>
+    }
+
+      
+</div>
