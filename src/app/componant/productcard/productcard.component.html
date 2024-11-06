@@ -1,12 +1,12 @@
 
-<div class="card" >
+<div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }"> >
     <img  class="card-img-top" [src]="dynamicProduct.imageUrl"  alt="no photo">
     <div class="card-body">
       <h5 class="card-title"> <span class="fw-bold"> Name:</span> {{dynamicProduct.name}}</h5>
       <h5 class="card-title"><span class="fw-bold"> Description:</span> {{dynamicProduct.description}}</h5>
-      <p class="card-text"><span class="fw-bold"> Price:</span> {{dynamicProduct.price | eGPcurrency }}</p>
-      <p class="card-text"><span class="fw-bold"> Expire Date:</span> {{expireDate | date }}</p>
-      <p class="card-text"><span class="fw-bold"> Quantity:</span> {{dynamicProduct.quantity}}</p>
+      <p class="card-text" ><span class="fw-bold"> Price:</span> {{dynamicProduct.price | eGPcurrency }}</p>
+      <p class="card-text" [ngClass]="{'text-danger':dynamicProduct.quantity==0 }"><span class="fw-bold"> Expire Date:</span> {{expireDate | date }}</p>
+      <p class="card-text" [ngStyle]="{'background-color':dynamicProduct.quantity==0?'yellow':'blue'}"><span class="fw-bold"> Quantity:</span> {{dynamicProduct.quantity}}</p>
 
       @if (dynamicProduct.quantity==0) {
       <p class="text-danger" >Sold out</p>

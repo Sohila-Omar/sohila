@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { EGPcurrencyPipe } from '../../pipes/egpcurrency.pipe';
 
 @Component({
   selector: 'app-productcard',
   standalone: true,
-  imports: [CurrencyPipe ,DatePipe, EGPcurrencyPipe],
+  imports: [CurrencyPipe ,DatePipe, EGPcurrencyPipe,CommonModule],
   templateUrl: './productcard.component.html',
   styleUrl: './productcard.component.css'
 })
