@@ -1,5 +1,5 @@
 
-<div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }"> >
+<div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }" appHighlight >
     <img  class="card-img-top" [src]="dynamicProduct.imageUrl"  alt="no photo">
     <div class="card-body">
       <h5 class="card-title"> <span class="fw-bold"> Name:</span> {{dynamicProduct.name}}</h5>
