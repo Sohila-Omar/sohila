@@ -1,0 +1,7 @@
+.active{
+    color: rgb(171, 61, 61) !important;
+    text-decoration: underline;
+}
+.a{
+    transition-duration:0.2s;
+}
