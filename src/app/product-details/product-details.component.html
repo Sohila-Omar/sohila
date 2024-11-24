@@ -1,1 +1,8 @@
-<p>product-details works!</p>
+@if (selectedProduct) {
+    <div class="card-wrapper">
+
+        <app-productcard [dynamicProduct]="selectedProduct"></app-productcard>
+    </div>
+}@else {
+    <h1> No Product Found</h1>
+}

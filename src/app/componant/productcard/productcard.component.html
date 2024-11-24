@@ -1,3 +1,5 @@
+<a [routerLink]="['/product-details',dynamicProduct.id]">
+
 
 <div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }" appHighlight >
     <img  class="card-img-top" [src]="dynamicProduct.imageUrl"  alt="no photo">
@@ -7,6 +9,8 @@
       <p class="card-text" ><span class="fw-bold"> Price:</span> {{dynamicProduct.price | eGPcurrency }}</p>
       <p class="card-text" [ngClass]="{'text-danger':dynamicProduct.quantity==0 }"><span class="fw-bold"> Expire Date:</span> {{expireDate | date }}</p>
       <p class="card-text" [ngStyle]="{'background-color':dynamicProduct.quantity==0?'red':'green'}"><span class="fw-bold"> Quantity:</span> {{dynamicProduct.quantity}}</p>
+
+      <span> Addition taxes: {{taxes|currency}}</span>
 
       @if (dynamicProduct.quantity==0) {
       <p class="text-danger" >Sold out</p>
@@ -31,3 +35,4 @@
       <button [disabled]="dynamicProduct.quantity==0" class="btn btn-primary" (click)="handleBuy(dynamicProduct)">Buy</button>
     </div>
   </div>
+</a>
