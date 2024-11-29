@@ -4,7 +4,9 @@
 
 <div class="products">
 
-  @for (product of products; track product.id) {
+  @for (product of getProduct(); track product.id) {
+
+  
 
 
    <app-productcard [dynamicProduct]="product"></app-productcard>

@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+      <tr>
+      
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        @for (item of cartService.cartItems; track $index) {
+      <tr>
+       
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+    
+      </tr>
+    }@empty {
+        <tr>
+            <td>No Items </td>
+        </tr>
+    }
+    
+    </tbody>
+  </table>

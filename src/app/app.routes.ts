@@ -7,6 +7,7 @@ import { DashboardComponent } from './componant/dashboard/dashboard.component';
 import { BlogComponent } from './componant/blog/blog.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './componant/cart/cart.component';
 
 export const routes: Routes = [
     {
@@ -51,6 +52,12 @@ export const routes: Routes = [
         path:'blog',
         component:BlogComponent,
         title:'Blog',
+    },
+
+    {
+        path:'cart',
+        component:CartComponent,
+        title:'Cart',
     },
 
     {

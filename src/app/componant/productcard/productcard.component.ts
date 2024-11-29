@@ -1,9 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { EGPcurrencyPipe } from '../../pipes/egpcurrency.pipe';
 import { HighlightDirective } from '../../dircetives/highlight.directive';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+
 
 @Component({
   selector: 'app-productcard',
@@ -12,9 +15,26 @@ import { RouterModule } from '@angular/router';
   templateUrl: './productcard.component.html',
   styleUrl: './productcard.component.css'
 })
-export class ProductcardComponent {
+export class ProductcardComponent implements OnInit {
  @Input() dynamicProduct!:Iproduct;
+
+
+ 
  taxes!: number;
+ constructor(private router:Router,private cartService:CartService){
+}
+
+handleAddToCart(){
+  this.cartService.addToCart(this.dynamicProduct)
+  alert("Item added to cart")
+  
+ 
+}
+ngOnInit():void{
+  
+  this.taxes = this.dynamicProduct.price * 0.14 ;
+}
+
 
 expireDate:Date =new Date();
 
@@ -22,6 +42,7 @@ expireDate:Date =new Date();
     product.quantity--;
     
   }
+
   // formatPrice(price:number){
   // return "$"+price ;
       

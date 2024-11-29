@@ -1,10 +1,10 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]',
   standalone: true
 })
-export class HighlightDirective {
+export class HighlightDirective implements OnChanges {
  @HostListener('mouseenter') onMouseEnter(){
   
   
@@ -15,6 +15,15 @@ export class HighlightDirective {
     this. elmentRef.nativeElement.style.backgroundColor ="gray";
   
  }
-  constructor(public elmentRef:ElementRef) {}
+
+ @Input() appHighlight!:string;
+  constructor(public elmentRef:ElementRef) {
+   
+  
+  }
+  ngOnChanges(): void {
+    console.log(this.appHighlight);
+  }
+ 
 
 }

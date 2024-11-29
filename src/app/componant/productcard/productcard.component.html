@@ -1,7 +1,7 @@
-<a [routerLink]="['/product-details',dynamicProduct.id]">
+ <!-- [routerLink]="['/product-details',dynamicProduct.id]" -->
 
 
-<div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }" appHighlight >
+<div class="card" [ngClass]="{'disabled':dynamicProduct.quantity==0 }" [appHighlight]="dynamicProduct.quantity==0?'Sold out':'on stock'" >
     <img  class="card-img-top" [src]="dynamicProduct.imageUrl"  alt="no photo">
     <div class="card-body">
       <h5 class="card-title"> <span class="fw-bold"> Name:</span> {{dynamicProduct.name}}</h5>
@@ -33,6 +33,7 @@
         <p class="text-success" >In Stock</p>
       } -->
       <button [disabled]="dynamicProduct.quantity==0" class="btn btn-primary" (click)="handleBuy(dynamicProduct)">Buy</button>
+
+      <button class="btn btn-info"(click)="handleAddToCart()">Add To Cart</button>
     </div>
   </div>
-</a>
