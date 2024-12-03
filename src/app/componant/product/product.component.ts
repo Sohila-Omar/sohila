@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
 import { ProductcardComponent } from '../productcard/productcard.component';
 import { ProductsService } from '../../services/products.service';
+import { ProductsApiService } from '../../services/products-api.service';
 
 
 @Component({
@@ -11,18 +12,19 @@ import { ProductsService } from '../../services/products.service';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+  products: Iproduct[] = [];
 
-constructor(private productsService: ProductsService){}
-getProduct(){
-    return this.productsService.products;
+constructor(private productService:ProductsApiService){}
+  ngOnInit(): void {
+    this.productService.getAllProducts().subscribe({
+      next: (data)=>{
+        this.products = data;
+      },
+      
+    })
   }
 
-    handleBuy(product:Iproduct){
-      product.quantity--;
-      
-    }
-    
 
 
 

@@ -6,6 +6,7 @@ import { HighlightDirective } from '../../dircetives/highlight.directive';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { ProductsApiService } from '../../services/products-api.service';
 
 
 @Component({
@@ -21,7 +22,18 @@ export class ProductcardComponent implements OnInit {
 
  
  taxes!: number;
- constructor(private router:Router,private cartService:CartService){
+ constructor(private router:Router,private cartService:CartService,private productService:ProductsApiService){}
+
+deleteSelectedProduct(){
+  this.productService.deleteProduct(this.dynamicProduct.id).subscribe({
+    next: (data)=>{
+      console.log(data);
+     
+    },
+    error: (err)=>{
+      console.error(err);
+    },
+  })
 }
 
 handleAddToCart(){

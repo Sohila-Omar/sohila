@@ -8,6 +8,10 @@ import { BlogComponent } from './componant/blog/blog.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './componant/cart/cart.component';
+import { ObserverComponent } from './componant/observer/observer.component';
+import { ApiComponent } from './componant/api/api.component';
+import { DynamicProductsComponent } from './componant/dynamic-products/dynamic-products.component';
+import { AddProductComponent } from './componant/add-product/add-product.component';
 
 export const routes: Routes = [
     {
@@ -58,6 +62,30 @@ export const routes: Routes = [
         path:'cart',
         component:CartComponent,
         title:'Cart',
+    },
+
+    {
+        path:'observer',
+        component:ObserverComponent,
+        title:'Observer',
+    },
+
+    {
+        path:'dynamic-products',
+        component:DynamicProductsComponent,
+        title:'Dynamic Products',
+    },
+
+    {
+        path:'add-product',
+        component:AddProductComponent,
+        title:' Add Product',
+    },
+
+    {
+        path:'api',
+        component:ApiComponent,
+        title:'Api',
     },
 
     {

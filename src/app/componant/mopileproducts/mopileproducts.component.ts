@@ -11,7 +11,7 @@ import { Iproduct } from '../../models/iproduct';
 export class MopileproductsComponent {
   products:Iproduct[]= [
   {
-    id: 11,
+    id: "11",
     name: 'Iphone',
     description: 'Programmable coffee maker with stainless steel carafe',
     price: 59.99,
@@ -22,7 +22,7 @@ export class MopileproductsComponent {
   },
 
   {
-    id: 11,
+    id: "11",
     name: 'Iphone',
     description: 'Programmable coffee maker with stainless steel carafe',
     price: 59.99,
@@ -33,7 +33,7 @@ export class MopileproductsComponent {
   },
 
   {
-    id: 11,
+    id: "11",
     name: 'Iphone',
     description: 'Programmable coffee maker with stainless steel carafe',
     price: 59.99,
